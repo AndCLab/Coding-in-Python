@@ -1,0 +1,15 @@
+{% if groceryitem_list %}
+	<ul> 
+		{% for groceryitem in groceryitem_list %}
+			<li>
+				<a href="/groceryitem/{{croceryitem.id}}/">{{groceryitem.item_name}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+{% else %}
+	<p>
+		No grocery items have been added. 
+	</p>
+{% endif %}
+
