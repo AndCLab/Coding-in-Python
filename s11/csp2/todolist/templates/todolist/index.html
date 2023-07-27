@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+<!-- Provides the title of the page to be provided in the template -->
+<!-- This should correspond with the block name provided in the base.html file -->
+{% block title %} Home {% endblock %}
+<!-- Provides the content of the page to be provided in the template -->
+<!-- This should correspond with the block name provided in the base.html -->
+{% block content %}
+	{% if user.is_anonymous == False %}
+	<h1 class="text-center my-3">Welcome {{ user.first_name }} {{ user.last_name }}!</h1>
+	<h3 class="text-center mb-3">My Tasks</h3>
+		<div class="container">
+			<div class="row">
+				<ul class="list-group col-lg-2 offset-lg-5 text-center">
+					{% if todoitem_list %}
+						{% for todoitem in todoitem_list %}
+						<li class="list-group-item">
+							<a href="{% url 'todolist:todoitem' todoitem.id %}" class="text-decoration-none">
+								{{ todoitem.task_name }}
+							</a>
+						</li>
+						{% endfor %}
+					{% else %}
+						<p class="text-center">No tasks have been created.</p>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+		<h1></h1>
+		<h3 class="text-center mb-3">My Events</h3>
+			<div class="row">
+				<ul class="list-group col-lg-2 offset-lg-5 text-center">
+					{% if event_list %}
+						{% for eventitem in event_list %}
+						<li class="list-group-item">
+							<a href="{% url 'todolist:eventitem' eventitem.id %}" class="text-decoration-none">
+								{{ eventitem.event_name }}
+							</a>
+						</li>
+					{% endfor %}
+					{% else %}
+						<p class="text-center">No events have been created.</p>
+					{% endif %}
+			</ul>
+		</div>
+
+	{% else %}
+		<h1 class="text-center my-3">You are not authorized to access this page.</h1>
+		<p class="text-center">Kindly login <a href="login">here</a></p>
+	{% endif %}
+
+{% endblock %}

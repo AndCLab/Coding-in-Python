@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Profile {% endblock %}
+
+{% block content %}
+
+{% if user.is_anonymous == False %}
+<div class="container">
+	<div class="row">
+		<div class="col-6 offset-3">
+			<h1 class="text-center my-3">Update Profile</h1>
+			<form action="{% url 'todolist:update_profile' user_id %}" method="post">	
+				{% csrf_token %}
+				<div class="mb-3">
+					<label for="first_name">First Name: {{ first_name }}</label>
+					<input class="form-control" id="first_name" type="text" name="first_name" value="{{ first_name }}" maxlength="20" required>
+				</div>
+				<div class="mb-3">
+					<label for="last_name">Last Name: {{ last_name }}</label>
+					<input class="form-control" id="last_name" type="text" name="last_name" value="{{ last_name }}" maxlength="20" required>
+				</div>
+				<div class="mb-3">
+					<label for="password">Password: </label>
+					<input class="form-control" id="password" type="password" name="password" value="{{ password }}" maxlength="20" required>
+				</div>
+				<div class="text-center">
+					<input class="btn btn-success" type="submit" value="Update Profile">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %}
+
+
+
+<!-- {% if is_user_authenticated == False %}
+	<h1>Something Went Wrong!</h1>
+	<p>Please contact your administrator or reset your password.</p>
+	<a href="{% url 'todolist:index' %}">Back to index page</a>
+{% endif %} -->

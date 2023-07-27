@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<div class="text-center my-3">
+	<h1>{{ event_name }}</h1>
+	<h3>Description</h3>
+	<p>{{ event_description }}</p>
+	<h3>Status</h3>
+	<p>{{ event_status }}</p>
+
+	<button class="btn btn-warning mx-1 text-decoration-none">
+		<a href="{% url 'todolist:index' %}" class="text-light text-decoration-none">Back To Events</a>
+	</button> 
+</div>
+{% endblock %}
