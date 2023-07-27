@@ -1,0 +1,18 @@
+{% if groceryitem_list and user.is_anonymous == False %}
+	<h1>Welcome {{user.first_name}} {{user.last_name}}!</h1>
+	<ul> 
+		{% for groceryitem in groceryitem_list %}
+			<li>
+				<a href="/groceryitem/{{groceryitem.id}}/">{{groceryitem.item_name}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+{% elif groceryitem_list.count == 0 and user %}
+	<p>No grocery items have been created</p>
+
+{% else %}
+	<h1>You are not authorized to access this page</h1>
+	<p>Kindly login <a href="login">here</a></p>
+{% endif %}
+
