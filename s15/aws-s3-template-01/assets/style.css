@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.text-base {
+    color: #d55c5a !important;
+}
+
+.text-accent-1 {
+    color: #894242 !important;
+}
+
+.text-accent-2 {
+    color: #ebd4cc !important;
+}
+
+.bg-base {
+    background-color: #d55c5a !important;
+}
+
+.bg-accent-1 {
+    background-color: #894242 !important;
+}
+
+.bg-accent-2 {
+    background-color: #ebd4cc !important;
+}
+
+.arrow {
+    font-size: 2rem;
+}
+
+.active {
+    font-weight: bolder;
+    border-bottom: 4px solid #ebd4cc;
+}
+
+#navbar {
+    transition: background-color 0.4s;
+}
+
+#navbarSupportedContent .nav-link {
+    font-size: 1.2rem;
+}
+
+.scrolled {
+    background-color: #d55c5a;
+    transition: 0.4s;
+    box-shadow: 0px 1px 10px #333;
+}
+
+.scrolled .nav-link {
+    color: #ebd4cc !important;
+}
+
+#about .overview {
+    font-size: 1.5rem;
+}
+
+#about .title {
+    font-size: 1.2rem;
+}
+
+#gallery .title {
+    font-size: 1.2rem;
+}
+
+#gallery .overview {
+    font-size: 1.5rem;
+}
+
+#gallery .gallery-item {
+    width: 33.33333%;
+}
+
+#contact .title {
+    font-size: 1.2rem;
+}
+
+#contact .overview {
+    font-size: 1.3rem;
+}
+
+#contact form input, #contact textarea {
+    border-color: #d55c5a;
+    border-radius: 2px;
+}
+
+.custom-btn {
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 18px;
+    width: 100px;
+}
+
+.custom-btn.custom-btn-primary {
+    background-color: #d55c5a;
+    border-color: #d55c5a;
+}
+
+.bg1 {
+    background: url("./images/contact.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.img-cover {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.full-height {
+    height: 100vh;
+    position: relative;
+}
+
+.hero-title {
+    letter-spacing: 1.5px;
+    font-size: 3rem;
+}
+
+.hero-overview {
+    font-size: 1.2rem;
+}
+
+.portfolio-hero {
+    background: url("./images/landing.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.scroll-link {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: 15%;
+    transition: bottom 0.4s;
+    color: #894242;
+}
+
+.scroll-link:hover {
+    transition: all 0.4s;
+    bottom: 15.5%;
+    color: #894242;
+}
