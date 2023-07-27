@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-6 offset-3">
+			<h1 class="text-center my-3">Register</h1>
+			{% if error == True %}
+				<h1 class="text-danger">Duplicated User Found</h1>
+				<p class="text-danger">A Duplicate User has been Found! User Creation Unsuccessful</p>
+			{% elif match == True %}
+				<p class="text-danger">Password doesn't Match</p>
+			{% endif %}
+			<form action="{% url 'todolist:register' %}" method="post">
+				{% csrf_token %}
+				<div class="mb-3">
+					<label for="username">Username: </label>
+					<input class="form-control" id="username" type="text" name="username" value="{{ username }}" maxlength="20" required>
+				</div>
+				<div class="mb-3">
+					<label for="first_name">First Name: </label>
+					<input class="form-control" id="first_name" type="text" name="first_name" value="{{ first_name }}" maxlength="20" required>
+				</div>
+				<div class="mb-3">
+					<label for="last_name">Last Name: </label>
+					<input class="form-control" id="last_name" type="text" name="last_name" value="{{ last_name }}" maxlength="20" required>
+				</div>
+				<div class="mb-3">
+					<label for="email">Email: </label>
+					<input class="form-control" id="email" type="email" name="email" value="{{ email }}" maxlength="50" required>
+				</div>
+				<div class="mb-3">
+					<label for="password">Password: </label>
+					<input class="form-control" id="password" type="password" name="password" value="{{ password }}" maxlength="20" required>
+				</div>
+				<div class="mb-3">
+					<label for="con_password">Confirm Password: </label>
+					<input class="form-control" id="con_password" type="password" name="con_password" value="{{ con_password }}" maxlength="20" required>
+				</div>
+				<div class="text-center">
+					<input class="btn btn-success" type="submit" value="Register">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

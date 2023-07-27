@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<!-- Provides the title of the page to be provided in the template -->
+<!-- This should correspond with the block name provided in the base.html file -->
+{% block title %}Home{% endblock %}
+<!-- Provides the content of the page to be provided in the template -->
+<!-- This should correspond with the block name provided in the base.html -->
+{% block content %}
+
+	{% if todoitem_list and user.is_anonymous == False %}
+		<h1 class="text-center my-3">Welcome {{ user.first_name }} {{ user.last_name }}!</h1>
+		<div class="container">
+			<div class="row">
+				<h3 class="text-center mb-3">My Tasks</h3>
+				<ul class="list-group col-lg-2 offset-lg-5 text-center">
+					{% for todoitem in todoitem_list %}
+					<li class="list-group-item">
+						<a href="{% url 'todolist:todoitem' todoitem.id %}" class="text-decoration-none">
+							{{ todoitem.task_name }}
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+	{% elif user.is_anonymous == True %}
+		<h1 class="text-center my-3">You are not authorized to access this page.</h1>
+		<p class="text-center">Kindly login <a href="login">here</a></p>
+	{% else %}
+		<p>No tasks have been created.</p>
+	{% endif %}
+
+{% endblock %}

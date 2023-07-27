@@ -1,0 +1,20 @@
+{% if todoitem_list and user.is_anonymous == False %}
+	<h1>Welcome {{ user.first_name }} {{ user.last_name }}!</h1>
+	<ul>
+		{% for todoitem in todoitem_list %}
+		<li>
+			<a href="/todoitem/{{ todoitem.id }}">
+				{{ todoitem.task_name }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+
+{% elif todoitem_list.count == 0 and user %}
+	<p>No tasks have been created.</p>
+
+{% else %}
+	<h1>You are not authorized to access this page.</h1>
+	<p>Kindly login <a href="login">here</a></p>
+
+{% endif %}

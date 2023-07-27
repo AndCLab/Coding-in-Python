@@ -1,0 +1,7 @@
+{% if is_user_unregistered == False %}
+	<h1>Duplicated User Found</h1>
+	<p>A Duplicate User has been Found! User Creation Unsuccessful</p>
+{% else %}
+	<h1>User Successfully Created!</h1>
+	<p>The Account for {{ first_name }} {{ last_name }} has been successfully created.</p>
+{% endif %}
